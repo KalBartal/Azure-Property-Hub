@@ -1,0 +1,27 @@
+<!-- templates/base.html -->
+<!doctype html>
+<html>
+
+<head>
+    <title>{% block title %}Azure Property Hub{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>
+                <!-- Add other links as needed -->
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <!-- Add footer content as needed -->
+    </footer>
+</body>
+
+</html>
