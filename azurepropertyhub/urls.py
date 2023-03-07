@@ -1,3 +1,4 @@
+from django import views
 from django.urls import include, path
 from .views import index, register, CustomPasswordResetView
 from django.contrib.auth.views import (
@@ -5,6 +6,8 @@ from django.contrib.auth.views import (
     PasswordResetConfirmView,
     PasswordResetCompleteView
 )
+from . import views
+
 
 urlpatterns = [
     path('', index, name='home'),
@@ -17,4 +20,6 @@ urlpatterns = [
         template_name='registration/password_reset_confirm.html'), name='password_reset_confirm'),
     path('reset/done/', PasswordResetCompleteView.as_view(
         template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
+    path('contact/', views.contact, name='contact'),
+    # ...
 ]

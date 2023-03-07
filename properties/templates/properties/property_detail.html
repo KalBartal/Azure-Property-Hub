@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ property.name }}</h1>
+  <p>{{ property.description }}</p>
+  <p>Price: ${{ property.price }}</p>
+  <p>Bedrooms: {{ property.bedrooms }}</p>
+  <p>Bathrooms: {{ property.bathrooms }}</p>
+  <p>Sq. Ft.: {{ property.sqft }}</p>
+  <p>Lot Size: {{ property.lot_size }} sq. ft.</p>
+  <p>Year Built: {{ property.year_built }}</p>
+  {% if property.garage_size %}
+    <p>Garage: {{ property.garage_size }} cars</p>
+  {% endif %}
+{% endblock %}
