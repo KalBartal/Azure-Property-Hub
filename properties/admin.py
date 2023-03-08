@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import Property
 
-# Register your models here.
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description', 'price', 'created_at')
+
+admin.site.register(Property, PropertyAdmin)

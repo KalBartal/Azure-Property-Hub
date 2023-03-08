@@ -1,5 +1,5 @@
-from django import views
 from django.urls import include, path
+from django.contrib import admin
 from .views import index, register, CustomPasswordResetView
 from django.contrib.auth.views import (
     PasswordResetDoneView,
@@ -21,5 +21,6 @@ urlpatterns = [
     path('reset/done/', PasswordResetCompleteView.as_view(
         template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
     path('contact/', views.contact, name='contact'),
-    # ...
+    path('', include('properties.urls')),
+    path('admin/', admin.site.urls),
 ]
