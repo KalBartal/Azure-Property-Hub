@@ -57,3 +57,8 @@ def inbox(request):
     messages = Message.objects.filter(
         recipient=request.user).order_by('-created_at')
     return render(request, 'messaging/inbox.html', {'messages': messages})
+
+def handler404(request, exception):
+    response = render(request, '404.html')
+    response.status_code = 404
+    return response

@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['azurepropertyhub.azurewebsites.net', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['azurepropertyhub.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://azurepropertyhub.azurewebsites.net']
 
 
 # Application definition
