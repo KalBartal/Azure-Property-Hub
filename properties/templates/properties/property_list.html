@@ -10,7 +10,8 @@
     <div class="row no-gutters align-items-start">
       <div class="col-md-5">
         {% if property.photo %}
-        <img src="{{ property.photo.url }}" class="card-img-top" alt="{{ property.name }}">
+        <a href="{% url 'property_detail' property.pk %}"><img src="{{ property.photo.url }}" class="card-img-top"
+            alt="{{ property.name }}"></a>
         {% else %}
         <img src="{% static 'img/placeholder.png' %}" class="card-img-top" alt="placeholder">
         {% endif %}
