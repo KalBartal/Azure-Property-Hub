@@ -1,7 +1,5 @@
 from django.urls import include, path
 from django.contrib import admin
-from django.conf.urls.static import static
-from django.conf import settings
 from .views import index, register, CustomPasswordResetView
 from django.contrib.auth.views import (
     PasswordResetDoneView,
@@ -26,5 +24,3 @@ urlpatterns = [
     path('', include('properties.urls')),
     path('admin/', admin.site.urls),
 ]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
