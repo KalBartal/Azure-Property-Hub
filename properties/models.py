@@ -26,4 +26,5 @@ class Property(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-        return self.name
+        return str(self.name)
+

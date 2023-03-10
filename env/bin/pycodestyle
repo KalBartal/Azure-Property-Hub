@@ -1,6 +1,4 @@
-#!/bin/sh
-'''exec' "/Users/kalbartal/Documents/Coding/GitHub/Azure Property Hub/env/bin/python" "$0" "$@"
-' '''
+#!/Users/kalbartal/Documents/Coding/GitHub/Azure-Property-Hub/env/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys

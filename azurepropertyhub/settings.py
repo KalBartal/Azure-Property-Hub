@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from storages.backends.azure_storage import AzureStorage
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +29,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['azurepropertyhub.azurewebsites.net','127.0.0.1']
 
 
 # Application definition
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'properties',
     'azurepropertyhub',
+    'storages'
 ]
 
 MIDDLEWARE = [
@@ -66,7 +68,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
-            BASE_DIR / 'accounts/templates',
+            # BASE_DIR / 'accounts/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -130,17 +132,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
-AZURE_ACCOUNT_NAME = '<your-azure-account-name>'
-AZURE_ACCOUNT_KEY = '<your-azure-account-key>'
-AZURE_CONTAINER = '<your-azure-container>'
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -162,3 +160,23 @@ USER_ROLES = (
     ('editor', 'Editor'),
     ('viewer', 'Viewer'),
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+STATICFILES_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+
+AZURE_ACCOUNT_NAME = os.getenv('AZURE_ACCOUNT_NAME')
+AZURE_ACCOUNT_KEY = os.getenv('AZURE_ACCOUNT_KEY')
+AZURE_CONTAINER = os.getenv('AZURE_CONTAINER')
+
+STATIC_URL = 'https://987storage.blob.core.windows.net/your-container-name/'
+STATICFILES_LOCATION = 'static'
+
+MEDIA_URL = 'https://your-storage-account-name.blob.core.windows.net/your-container-name/'
+MEDIAFILES_LOCATION = 'media'
+
+

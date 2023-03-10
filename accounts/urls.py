@@ -1,3 +1,6 @@
+from django.conf.urls.static import static
+from django.conf import settings
+
 from django.urls import path
 from accounts.views import CustomPasswordResetView, register
 from django.contrib.auth.views import (
@@ -16,3 +19,5 @@ urlpatterns = [
     path('reset/done/', PasswordResetCompleteView.as_view(
         template_name='registration/password_reset_complete.html'), name='password_reset_complete'),
 ]
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
