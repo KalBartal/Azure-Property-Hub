@@ -15,6 +15,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from storages.backends.azure_storage import AzureStorage
 
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +30,9 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['azurepropertyhub.azurewebsites.net','127.0.0.1']
+ALLOWED_HOSTS = ['azurepropertyhub.azurewebsites.net', '127.0.0.1']
+
+CSRF_TRUSTED_ORIGINS = ['azurepropertyhub.azurewebsites.net']
 
 
 # Application definition
@@ -145,8 +148,6 @@ AUTH_USER_MODEL = 'accounts.User'
 LOGIN_URL = 'login'
 
 
-load_dotenv()
-
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
@@ -173,10 +174,9 @@ AZURE_ACCOUNT_NAME = os.getenv('AZURE_ACCOUNT_NAME')
 AZURE_ACCOUNT_KEY = os.getenv('AZURE_ACCOUNT_KEY')
 AZURE_CONTAINER = os.getenv('AZURE_CONTAINER')
 
+
 STATIC_URL = 'https://987storage.blob.core.windows.net/your-container-name/'
 STATICFILES_LOCATION = 'static'
 
 MEDIA_URL = 'https://your-storage-account-name.blob.core.windows.net/your-container-name/'
 MEDIAFILES_LOCATION = 'media'
-
-
