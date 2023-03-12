@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row bg-image">
+        <div class="col-md-6">
+            <div class="card my-5">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">Welcome to the Azure Property Hub!</h1>
+                    <p class="card-text">We help you find your dream property, whether you're looking to buy, rent or sell.</p>
+                    <p class="card-text">Browse through our listings and find the perfect home or office for you.</p>
+                    <a href="{% url 'property_list' %}" class="btn btn-primary d-block mx-auto mt-4">View Properties</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

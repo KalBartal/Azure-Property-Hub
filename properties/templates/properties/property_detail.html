@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-7">
+            <h2 class="text-3xl font-bold mb-4">{{ property.name }}</h2>
+            <div class="mb-4">
+                <h3 class="text-xl font-bold">Description</h3>
+                <p>{{ property.description }}</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold">Details</h3>
+                <ul>
+                    <li>Price: ${{ property.price }}</li>
+                    <li>Bedrooms: {{ property.bedrooms }}</li>
+                    <li>Bathrooms: {{ property.bathrooms }}</li>
+                    <li>Sq. Ft.: {{ property.sqft }}</li>
+                    <li>Lot Size: {{ property.lot_size }} sq. ft.</li>
+                    <li>Year Built: {{ property.year_built }}</li>
+                    {% if property.garage_size %}
+                    <li>Garage: {{ property.garage_size }} cars</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="property-image">
+                {% if property.photo %}
+                <img src="{{ property.photo.url }}" alt="{{ property.name }}" class="img-fluid mb-4"
+                    style="width: 100%">
+                {% else %}
+                <img src="{% static 'img/placeholder.png' %}" alt="placeholder" class="img-fluid mb-4"
+                    style="width: 100%">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
