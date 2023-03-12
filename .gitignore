@@ -8,6 +8,7 @@ local_settings.py
 # Media files
 /media
 /static
+/staticfiles
 
 # Database files
 *.sqlite3
