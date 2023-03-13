@@ -175,8 +175,9 @@ AZURE_ACCOUNT_KEY = os.getenv('AZURE_ACCOUNT_KEY')
 AZURE_CONTAINER = os.getenv('AZURE_CONTAINER')
 
 
-STATIC_URL = 'https://987storage.blob.core.windows.net/your-container-name/'
+STATIC_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/"
 STATICFILES_LOCATION = 'static'
 
-MEDIA_URL = 'https://your-storage-account-name.blob.core.windows.net/your-container-name/'
+MEDIA_URL = f"https://{AZURE_ACCOUNT_NAME}.blob.core.windows.net/{AZURE_CONTAINER}/"
 MEDIAFILES_LOCATION = 'media'
+
